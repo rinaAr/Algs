@@ -1,26 +1,17 @@
-def max_number_of_prizes(n):
-    prizes = []
-    current_prize = 1
+from utils import max_number_of_prizes
 
-    while n > 0:
-        if n - current_prize > current_prize:
-            prizes.append(current_prize)
-            n -= current_prize
-            current_prize += 1
-        else:
-            prizes.append(n)
-            n = 0
+def main():
+    # Чтение данных из файла input.txt
+    with open('input.txt', 'r') as f:
+        n = int(f.readline().strip())
 
-    return prizes
+    # Вызов функции
+    prizes = max_number_of_prizes(n)
 
-# Чтение данных из файла input.txt
-with open('input.txt', 'r') as f:
-    n = int(f.readline().strip())
+    # Запись результата в файл output.txt
+    with open('output.txt', 'w') as f:
+        f.write(str(len(prizes)) + '\n')
+        f.write(' '.join(map(str, prizes)) + '\n')
 
-# Вызов функции
-prizes = max_number_of_prizes(n)
-
-# Запись результата в файл output.txt
-with open('output.txt', 'w') as f:
-    f.write(str(len(prizes)) + '\n')
-    f.write(' '.join(map(str, prizes)) + '\n')
+if __name__ == "__main__":
+    main()

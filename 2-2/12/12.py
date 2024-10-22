@@ -1,9 +1,10 @@
+from utils import write_output_cicle
+
 class TreeNode:
     def __init__(self, key):
         self.key = key
         self.left_index = None
         self.right_index = None
-
 
 def calculate_balance_and_height(node, nodes):
     if node is None:
@@ -18,7 +19,6 @@ def calculate_balance_and_height(node, nodes):
 
     # Возвращаем высоту и баланс
     return max(left_height, right_height) + 1, balance
-
 
 # Чтение данных
 nodes = []
@@ -39,7 +39,5 @@ for i in range(N):
     _, balance = calculate_balance_and_height(nodes[i], nodes)
     balances.append(balance)
 
-# Запись результата в файл
-with open('output.txt', 'w') as f:
-    for balance in balances:
-        f.write(str(balance) + '\n')
+# Запись результата в файл с использованием функции из utils
+write_output_cicle('output.txt', balances)

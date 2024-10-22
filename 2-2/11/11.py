@@ -1,3 +1,5 @@
+from utils import write_output_2
+
 class AVLNode:
     def __init__(self, key):
         self.key = key
@@ -162,9 +164,8 @@ def main():
                 predecessor = tree.prev(root, x)
                 output.append(str(predecessor.key) if predecessor else "none")
 
-    with open("output.txt", "w") as f:
-        f.write("\n".join(output) + "\n")
-
+    # Запись результатов в файл с помощью функции из utils
+    write_output_2("output.txt", output)
 
 if __name__ == "__main__":
     main()

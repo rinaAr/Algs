@@ -1,3 +1,5 @@
+from utils import write_output_cicle
+
 class TreeNode:
     def __init__(self, key):
         self.left = None
@@ -53,7 +55,5 @@ with open('input.txt', 'r') as f:
             result = bst.find_min_greater_than(x)
             results.append(result if result is not None else 0)
 
-# Запись результата в файл
-with open('output.txt', 'w') as f:
-    for result in results:
-        f.write(str(result) + '\n')
+# Запись результата в файл с использованием функции из utils
+write_output_cicle('output.txt', results)

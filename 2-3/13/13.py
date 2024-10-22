@@ -1,3 +1,5 @@
+from utils import write_output
+
 def dfs(grid, visited, x, y):
     # Направления для движения: вниз, вверх, вправо, влево
     directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -30,5 +32,4 @@ for i in range(n):
             beds_count += 1  # Увеличиваем счётчик грядок
 
 # Запись результата
-with open('output.txt', 'w') as f:
-    f.write(str(beds_count) + '\n')
+write_output('output.txt', beds_count)

@@ -1,3 +1,5 @@
+from utils import write_output
+
 def has_cycle(n, edges):
     # Строим граф
     graph = [[] for _ in range(n)]
@@ -27,7 +29,6 @@ def has_cycle(n, edges):
                 return 1
     return 0
 
-
 # Чтение данных
 with open('input.txt', 'r') as f:
     n, m = map(int, f.readline().split())
@@ -36,6 +37,5 @@ with open('input.txt', 'r') as f:
 # Получаем результат
 result = has_cycle(n, edges)
 
-# Запись в файл
-with open('output.txt', 'w') as f:
-    f.write(str(result) + '\n')
+# Запись в файл с использованием функции из utils
+write_output('output.txt', result)
